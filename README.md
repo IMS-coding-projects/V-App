@@ -1,2 +1,3 @@
-# V-App
-Source Code of V-App
+# V-App Documentation
+
+This branch contains the documentation & tutorial for V-App.
