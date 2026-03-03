@@ -1,0 +1,108 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "palm",
+  "name": "V-App OrariAperti Tutorial & Documentation",
+  "colors": {
+    "primary": "#7f22fe",
+    "light": "#9164fb",
+    "dark": "#7f22fe"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "note"
+            ]
+          },
+          {
+            "group": "Tutorial",
+            "pages": [
+              "tutorial/settings"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Technical Documentation",
+        "groups": [
+          {
+            "group": "Technical Documentation",
+            "pages": [
+              "tech-docs/index"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Journal",
+        "groups": [
+          {
+            "group": "Journal",
+            "pages": [
+              "journal/index",
+              "journal/person-1",
+              "journal/person-2"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Repository",
+          "href": "https://github.com/IMS-coding-projects/V-App",
+          "icon": "github"
+        }
+      ]
+    }
+  },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "The Page Has Gone Undercover.",
+      "description": "This page is in witness protection. Even we don’t know where it went. **[Go back home](/)**"
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "primary": {
+      "label": "IMS-coding-projects/V-App",
+      "type": "github",
+      "href": "https://github.com/IMS-coding-projects/V-App"
+    }
+  },
+  "thumbnails": {
+    "appearance": "light",
+    "background": "#7f22fe"
+  },
+  "icons": {
+    "library": "lucide"
+  },"background": {"decoration": "windows"},
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/IMS-coding-projects"
+    }
+  }
+}

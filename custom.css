@@ -1,0 +1,25 @@
+.nav-logo {
+  width: auto;
+  height: 2.6rem;
+  position: relative;
+  object-fit: contain;
+}
+
+::selection {
+  background: #7e22fe6b;
+  color: #000;
+}
+
+::selection.dark {
+  background: #7e22fe6b;
+  color: #fff;
+}
+
+#navbar > div.z-10.mx-auto {
+  background-color: #7e22fe1f;
+}
+
+#sidebar-content {
+  background-color: #7e22fe09;
+  position: fixed;
+}
