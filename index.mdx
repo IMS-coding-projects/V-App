@@ -2,54 +2,37 @@
 title: "Getting Started"
 description: "Introduction to V-App OrariAperti. Learn what the project is, how it works, and where to begin."
 sidebarTitle: "Overview"
-mode: wide
+mode: "wide"
 icon: "rocket"
 keywords: ["introduction", "overview", "setup", "getting started"]
 ---
 
 <Frame caption="OrariAperti - All Rights Reserved">
-<img 
-  className="block dark:hidden" 
-  src="/logo/light.svg" 
-  alt="Light mode logo"
-/>
-
-<img 
-  className="hidden dark:block" 
-  src="/logo/dark.svg" 
-  alt="Dark mode logo"
-/>
+  <img
+    className="hidden dark:block"
+    src="/logo/dark.svg"
+    alt="Dark mode logo"
+  />
+  <img
+    className="dark:hidden"
+    src="/logo/light.svg"
+    alt="Light mode logo"
+  />
 </Frame>
 
 ## Documentation Structure
 
 Here you can find the following things:
 
-<Card
-  title="Tutorial"
-  icon="react"
-  href="/tutorial/settings"
->
+<Card icon="react" href="/tutorial/settings" cta="Go Check it Out!" title="Tutorial">
   Our React Native Tutorial
 </Card>
 
-
 <CardGroup cols="2">
-  <Card
-    title="Technical Documentation"
-    icon="file-code"
-    horizontal
-    href="/tech-docs"
-  >
+  <Card icon="file-code" horizontal href="/tech-docs" title="Technical Documentation">
     The Technical Documentation V-App
   </Card>
-
-  <Card
-    title="Journal"
-    icon="files"
-    href="/journal"
-    horizontal
-  >
+  <Card icon="files" horizontal href="/journal" title="Journal">
     Our Work Journals can be found here
   </Card>
 </CardGroup>
