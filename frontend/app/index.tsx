@@ -1,23 +1,36 @@
-import { Button } from '@/components/ui/button'
+import  { Button } from '@/components/ui/button'
 import { Icon } from '@/components/ui/icon'
 import { Text } from '@/components/ui/text'
 import { Mode } from '@/lib/theme'
-import { Link, Stack } from 'expo-router'
+import { Link, LinkProps, router, Stack, useRouter } from 'expo-router'
 import { MoonStarIcon, StarIcon, SunIcon } from 'lucide-react-native'
-import * as React from 'react'
 import { Image, ImageSourcePropType, type ImageStyle, View } from 'react-native'
 import { Uniwind, useUniwind } from 'uniwind'
+import Logo_Test from '@/components/Logo_Test'
 
 const LOGO: Record<Mode, ImageSourcePropType> = {
     light: require('@/assets/images/react-native-reusables-light.png'),
     dark: require('@/assets/images/react-native-reusables-dark.png'),
 }
 
+function Thingy() {
+    return (
+        <View className="flex-row items-center gap-2">
+            <Logo_Test/>
+            <Text className="text-lg font-bold">OrariAperti</Text>
+        </View>
+    )
+}
+
+// typescript
+// Put the title component in the left slot and keep the literal type to satisfy TS
 const SCREEN_OPTIONS = {
+    headerTitle: () => <Thingy />,
     title: 'V-App',
-    headerTransparent: true,
+    headerTransparent: false,
     headerRight: () => <ThemeToggle />,
 }
+
 
 const IMAGE_STYLE: ImageStyle = {
     height: 76,
@@ -37,6 +50,14 @@ export default function Screen() {
                         V-App Getting started!
                     </Text>
                 </View>
+                <Link href={{ pathname: '/Hello' }} asChild>
+                    <Button>
+                        <Text>Go to Hello</Text>
+                    </Button>
+                </Link>
+                <Button onPress={() => router.push('/Hello')}>
+                    <Text>Go to Hello</Text>
+                </Button>
                 <View className="flex-row gap-2">
                     <Link href="https://github.com/IMS-coding-projects/V-App" asChild>
                         <Button>
