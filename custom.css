@@ -21,5 +21,20 @@
 
 #sidebar-content {
   background-color: #7e22fe09;
-  /*position: fixed;*/
+  position: fixed;
 }
+
+#content-container {
+  margin-left: 280px;
+}
+
+@media (max-width: 1024px) {
+  #content-container {
+    margin-left: 0;
+  }
+}
+
+#navigation-items > div > ul > li {
+  width: 80%;
+}
+
