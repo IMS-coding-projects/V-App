@@ -10,58 +10,72 @@ keywords: ["technical documentation", "architecture", "implementation", "system 
 
 The stack consists of:
 
-- React Native
-- Expo (Expo Go during development)
-- Metro
-- React Native Reusables
-- Uniwind
-- Lucide
-
-### Details
-
-- React Native: Cross‑platform mobile app framework providing core components and native APIs.
-- Expo: Framework and tooling for React Native that simplifies app development; Expo Go is used for running the app in development.
-- Metro: JavaScript bundler and development server used by React Native and Expo to bundle and serve the app code. ("Vite" for React Native; i.e. Metro has the same role like Vite in other web apps)
-- React Native Reusables: UI component library for React Native, inspired by shadcn/ui.
-- Uniwind: Tailwind-style CSS for React Native, used by React Native Reusables.
-- Lucide: Icon library used by React Native Reusables for icons.
+- **[React Native](https://reactnative.dev/)**: Cross‑platform mobile app framework providing core components and native APIs for building iOS and Android apps.
+- **[Expo (Expo Go during development)](https://expo.dev/go)**: Framework and tooling for React Native that simplifies app development; Expo Go is used for running the app in development without native build steps.
+- **[Metro](https://metrobundler.dev/)**: JavaScript bundler and development server used by React Native and Expo to bundle and serve the app code.
+- **[Babel](https://babeljs.io/)**: JavaScript compiler that transforms modern JavaScript and JSX syntax into backward-compatible code for React Native.
+- **[React Native Reusables](https://reactnativereusables.com/)**: Native Reusables: UI component library for React Native, inspired by shadcn/ui, providing pre-built, customizable components.
+- **[Uniwind](https://uniwind.dev/)**: Tailwind-style utility-first CSS framework for React Native, used by React Native Reusables to style components efficiently.
+- **[Lucide](https://lucide.dev/)**: Open-source icon library integrated with React Native Reusables for vector icons.  
 
 ## Folder Structure
 
-```markdown
-.
-├── app/                    # Expo Router file-based routing
-│ ├── +html.tsx             # Custom HTML document (web platform)
-│ ├── +not-found.tsx        # 404 page for unmatched routes
-│ └── index.tsx             # Home screen (`/`)
-├── app.json                # Expo app configuration
-├── assets/
-│ └── images/               # Static image assets
-├── babel.config.js         # Babel transpiler configuration
-├── components/
-│ └── ui/                   # React Native Reusables UI components
-├── components.json         # React Native Reusables CLI config
-├── global.css              # CSS custom properties (Tailwind vars)
-├── lib/                    # Shared utilities and theme
-│ ├── theme.ts              # JS/TS theme object (mirrors global.css)
-│ └── utils.ts              # App utilities (cn, cnid, etc.)
-├── metro.config.js         # Metro bundler configuration
-├── package-lock.json       # Dependency lockfile (npm)
-├── package.json            # Dependencies and scripts
-├── tsconfig.json           # TypeScript configuration
-└── uniwind-types.d.ts      # Uniwind Tailwind type declarations
-```
+<Tree>
+  <Tree.Folder name="app" defaultOpen>
+    <Tree.File name="+html.tsx" />
+    <Tree.File name="+not-found.tsx" />
+    <Tree.File name="index.tsx" />
+  </Tree.Folder>
 
-## Key directories explained
+  <Tree.File name="app.json" />
 
-**`app/`** - Expo Router routes (file = route):
+  <Tree.Folder name="assets">
+    <Tree.Folder name="images">
+    </Tree.Folder>
+  </Tree.Folder>
 
-- `index.tsx` → `/` (home)
-- `[slug].tsx` → `/slug` (dynamic)
-- `_layout.tsx` → Shared layout
+  <Tree.File name="babel.config.js" />
 
-**`lib/`** - App-wide shared code (theme, utils, hooks)
+  <Tree.Folder name="components">
+    <Tree.Folder name="ui">
+    </Tree.Folder>
+  </Tree.Folder>
 
-**`components/ui/`** - Copy-pasted React Native Reusables components
+  <Tree.File name="components.json" />
+  <Tree.File name="global.css" />
 
-**Root configs** drive Babel, Metro, TypeScript, and Expo behavior. (Ask AI if you want to understand a specific one)
+  <Tree.Folder name="lib">
+    <Tree.File name="theme.ts" />
+    <Tree.File name="utils.ts" />
+  </Tree.Folder>
+
+  <Tree.File name="metro.config.js" />
+  <Tree.File name="package-lock.json" />
+  <Tree.File name="package.json" />
+  <Tree.File name="tsconfig.json" />
+  <Tree.File name="uniwind-types.d.ts" />
+</Tree>
+
+### Key Items explained
+
+* **`app/`** – Expo Router’s **file‑based routes** (each file becomes a route in your app)
+  * `+html.tsx` → Custom HTML document for the **web part of Expo**
+  * `+not-found.tsx` → **404 page** shown when no route matches
+  * `index.tsx` → **Home screen** (`/`) route
+  * *(other dynamic/utility files like `[slug].tsx` or `_layout.tsx` would live here too)* 
+* **`app.json`** – **Expo configuration file** that defines project metadata (name, slug, icons) and build settings used by Expo tooling. 
+* **`assets/`** – Folder for **static assets** such as images, icons, fonts, etc.
+  * `images/` → Stores **static image assets** used in the app. 
+* **`babel.config.js`** – Configuration for **Babel**, the JavaScript compiler; sets up presets (e.g., `babel‑preset‑expo`) and plugins used to transform modern JS/TS into code compatible with Expo/React Native. 
+* **`components/`** – Contains reusable UI pieces for your app
+  * `ui/` → A directory of **UI component primitives** you’ve copied in or built (buttons, inputs, etc.)
+* **`components.json`** – Config file for **React Native Reusables CLI**, defining which components exist and how they’re scaffolded.
+* **`global.css`** – Your **global CSS file** with custom properties (e.g., Tailwind variables) used for styling especially on web.
+* **`lib/`** – Shared utilities and logic used across the app
+  * `theme.ts` → A **theme object** (e.g., colors, fonts) coordinating design tokens with global styles
+  * `utils.ts` → App utilities (helper functions like `cn`, ID helpers, etc.)
+* **`metro.config.js`** – **Metro bundler config** for React Native/Expo; defines how files are resolved, how CSS (or Uniwind/Tailwind) is handled, and custom transforms. 
+* **`package-lock.json`** – Auto‑generated **npm lockfile** locking exact versions of all dependencies.
+* **`package.json`** – Lists **dependencies, scripts, and metadata** for your project (e.g., build/start commands).
+* **`tsconfig.json`** – TypeScript compiler settings (module resolution, strictness, paths).
+* **`uniwind‑types.d.ts`** – **TypeScript declaration file** generated by Uniwind/Tailwind tooling to provide typings for your CSS classes and theme variables. 

@@ -11,7 +11,8 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Home",
+        "icon": "house",
         "groups": [
           {
             "group": "Getting started",
@@ -19,7 +20,13 @@
               "index",
               "note"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "tab": "Tutorial",
+        "icon": "react",
+        "groups": [
           {
             "group": "Tutorial",
             "pages": [
@@ -30,6 +37,7 @@
       },
       {
         "tab": "Technical Documentation",
+        "icon": "file-code",
         "groups": [
           {
             "group": "Technical Documentation",
@@ -41,6 +49,7 @@
       },
       {
         "tab": "Journal",
+        "icon": "book-text",
         "groups": [
           {
             "group": "Journal",
@@ -81,6 +90,10 @@
       "href": "https://github.com/IMS-coding-projects/V-App"
     }
   },
+  "banner": {
+    "content": "⚙️This Project is in Progress. Check back later for more accurate information!",
+    "dismissible": true
+  },
   "thumbnails": {
     "appearance": "light",
     "background": "#7f22fe"
@@ -90,9 +103,9 @@
   },"background": {"decoration": "windows"},
   "contextual": {
     "options": [
-     "copy",
-     "view",
      "chatgpt",
+     "view",
+     "copy",
      "claude",
      "perplexity",
      "mcp",
