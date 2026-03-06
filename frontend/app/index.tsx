@@ -8,23 +8,16 @@ import { Image, ImageSourcePropType, type ImageStyle, View } from 'react-native'
 import { Uniwind, useUniwind } from 'uniwind'
 import Logo from '@/components/svg/Logo'
 
-const LOGO: Record<Mode, ImageSourcePropType> = {
-    light: require('@/assets/images/react-native-reusables-light.png'),
-    dark: require('@/assets/images/react-native-reusables-dark.png'),
-}
-
 function Header() {
     const { theme } = useUniwind()
     return (
-        <View className="flex-1 flex-row items-center justify-center gap-2 p-4">
+        <View className="flex-1 flex-row items-center justify-center gap-2 p-4 pr-16">
             <Logo mode={(theme ?? 'light') as Mode} height={24} />
             <Text className="text-xl font-bold">OrariAperti</Text>
         </View>
     )
 }
 
-// typescript
-// Put the title component in the left slot and keep the literal type to satisfy TS
 const SCREEN_OPTIONS = {
     headerTitle: () => <Header />,
     title: 'OrariAperti',
