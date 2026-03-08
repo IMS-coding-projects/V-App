@@ -8,9 +8,9 @@
         "userInterfaceStyle": "automatic",
         "newArchEnabled": true,
         "splash": {
-            "image": "./assets/images/logo-oa-dark.svg",
+            "image": "./assets/images/logo-oa-light.svg",
             "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
+            "backgroundColor": "#000000"
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {

@@ -1,25 +1,15 @@
 import { Button } from '@/components/ui/button'
-import { Icon } from '@/components/ui/icon'
 import { Text } from '@/components/ui/text'
 import { Mode } from '@/lib/theme'
-import { Link, LinkProps, router, Stack, useRouter } from 'expo-router'
-import { MoonStarIcon, StarIcon, SunIcon } from 'lucide-react-native'
-import { Image, ImageSourcePropType, type ImageStyle, View } from 'react-native'
-import { Uniwind, useUniwind } from 'uniwind'
+import { Link, Stack } from 'expo-router'
+import { View } from 'react-native'
+import { useUniwind } from 'uniwind'
+import { HeaderTitle } from '@/components/header/HeaderTitle'
+import { ThemeToggle } from '@/components/header/ThemeToggle'
 import Logo from '@/components/svg/Logo'
 
-function Header() {
-    const { theme } = useUniwind()
-    return (
-        <View className="flex-1 flex-row items-center justify-center gap-2 p-4 pr-16">
-            <Logo mode={(theme ?? 'light') as Mode} height={24} />
-            <Text className="text-xl font-bold">OrariAperti</Text>
-        </View>
-    )
-}
-
 const SCREEN_OPTIONS = {
-    headerTitle: () => <Header />,
+    headerTitle: () => <HeaderTitle />,
     title: 'OrariAperti',
     headerRight: () => <ThemeToggle />,
 }
@@ -52,25 +42,5 @@ export default function Screen() {
                 </View>
             </View>
         </>
-    )
-}
-
-const THEME_ICONS = {
-    light: SunIcon,
-    dark: MoonStarIcon,
-}
-
-function ThemeToggle() {
-    const { theme } = useUniwind()
-
-    function toggleTheme() {
-        const newTheme = theme === 'dark' ? 'light' : 'dark'
-        Uniwind.setTheme(newTheme)
-    }
-
-    return (
-        <Button onPressIn={toggleTheme} size="icon" variant="ghost" className="ios:size-9 web:mx-4 rounded-full">
-            <Icon as={THEME_ICONS[(theme ?? 'light') as Mode]} className="size-5" />
-        </Button>
     )
 }
