@@ -9,6 +9,15 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Repository",
+          "icon": "github",
+          "href": "https://github.com/IMS-coding-projects/V-App"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Home",
@@ -48,6 +57,17 @@
         ]
       },
       {
+        "tab": "Lesson Preparation",
+        "groups": [
+          {
+            "group": "Lesson Preparation",
+            "pages": [
+              "lesson-prep"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Journal",
         "icon": "book-text",
         "groups": [
@@ -61,16 +81,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Repository",
-          "href": "https://github.com/IMS-coding-projects/V-App",
-          "icon": "github"
-        }
-      ]
-    }
+    ]
   },
   "errors": {
     "404": {
