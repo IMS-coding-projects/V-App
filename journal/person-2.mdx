@@ -9,31 +9,31 @@ keywords: ["journal entry", "developer log", "contribution", "reflection"]
 <Update label="12.03.2026" tags={Implementation} description="Day 5">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
-      Today I started with the implementation of the expo app. That is navigation and testing client server connection (phone ←→ OrariApertiBackend). I could already start porting [some things from the existing frontend to the app.](https://github.com/IMS-coding-projects/M347/tree/main/OrariAperti/frontend/src/components)
+      Today we could roughly finish the expo go App for OrariAperti 🥳. ([PR](https://github.com/IMS-coding-projects/V-App/pull/6))
     </Accordion>
     <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Yes. The navigation caused some trouble, but we could solve it.
+      Hmmm.... No not really.... Since we already had react frontend components, we just had to port them to react native, which was easier then I expected.... There was only one small challenge/bug I experienced while implementing the components. Instead of using the `View` component of `react-native`, I imported `View` from `lucide-react-native` which I did not know was this icon: <Icon icon="view" iconType="solid" />..... It took me a looooong time to realise this small mistake since there were no explicit errors, but just very weird behaviour.
     </Accordion>
     <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      For this we used  the [expo documentation](https://docs.expo.dev/) aswell as [their intro playlist](https://www.youtube.com/watch?v=Yh6Qlg2CYwQ). Those were helpful resources.
+      Like after spending 20minutes of trying to debug it, I went to check the imports and there I eventually found it...😅
     </Accordion>
     <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      We got much technical insight into how expo/react native works. This allowes us to be more efficient later on.👍👍
+      I think I understood how react native, expo go and also expo plugins work👍👍.
     </Accordion>
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      We learned that it is best practice to have a stack router as well as tabs. 
+      In the commits today I've also refactored files to split the logic, structure and styling as much as possible to follow the MVC Pattern. You can see this well in our [validator.ts](https://github.com/IMS-coding-projects/V-App/blob/dev/frontend/lib/validator.ts).
     </Accordion>
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      I mean like every understanding task, one runs into a problem pretty fast but also finds solutions.
+      Nope👍.
     </Accordion>
     <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      I had tried to put a stack navigation into a tab nav, but that did not work. It had to be the other way around.😅
+      For the wrong import I first tried to play with the styling (because that was really weird) but that (obviously) did not help at all.
     </Accordion>
     <Accordion icon="search" title="Where could further work begin to solve the issue?">
       The issue has already been solved👍👍
     </Accordion>
     <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Start moving the react logic from [the existing frontend](https://github.com/IMS-coding-projects/M347/tree/main/OrariAperti/frontend/src/components) to the mobile app.
+      Check with my other teammate and the other react native group to coordinate the lesson👍.
     </Accordion>
   </AccordionGroup>
 </Update>
@@ -53,7 +53,7 @@ keywords: ["journal entry", "developer log", "contribution", "reflection"]
       We got much technical insight into how expo/react native works. This allowes us to be more efficient later on.👍👍
     </Accordion>
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      We learned that it is best practice to have a stack router as well as tabs. 
+      [We learned that it is best practice to have a stack router as well as tabs. ](https://docs.expo.dev/router/advanced/native-tabs/#use-stacks-inside-tabs)
     </Accordion>
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
       I mean like every understanding task, one runs into a problem pretty fast but also finds solutions.
