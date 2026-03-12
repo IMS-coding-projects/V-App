@@ -9,7 +9,7 @@ export function HeaderTitle() {
 
     return (
         <View className="flex-1 flex-row items-center justify-center">
-            <Logo mode={(theme ?? 'light') as Mode} height={24} />
+            <Logo mode={theme as Mode} height={24} />
             <Text className="text-xl font-bold">OrariAperti</Text>
         </View>
     )
