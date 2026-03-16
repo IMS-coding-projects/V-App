@@ -1,5 +1,10 @@
 import { DarkTheme, DefaultTheme, type Theme } from '@react-navigation/native';
 
+export type Mode = 'light' | 'dark'
+
+// To understand for what this is: https://reactnativereusables.com/docs/customization#themets
+// Themes can be changed here: https://ui.shadcn.com/themes
+
 export const THEME = {
     light: {
         background: 'hsl(0 0% 100%)',

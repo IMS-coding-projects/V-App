@@ -3,6 +3,11 @@
 
 @import 'tw-animate-css';
 
+/*
+* To understand this file, read: https://reactnativereusables.com/docs/customization#globalcss
+* If you change this content, also read: ./lib/theme.ts ( https://reactnativereusables.com/docs/customization#themets )
+*/
+
 @theme {
     --radius: 10px;
     --radius-sm: calc(var(--radius) - 4px);

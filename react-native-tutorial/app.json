@@ -1,31 +1,32 @@
 {
     "expo": {
-        "name": "react-native-tutorial",
-        "slug": "minimal",
+        "name": "react-native-tutorial-template",
         "version": "1.0.0",
         "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
+        "icon": "./assets/images/logo-oa-light.svg",
         "scheme": "minimal",
         "userInterfaceStyle": "automatic",
+        "newArchEnabled": true,
         "splash": {
-            "image": "./assets/images/splash.png",
+            "image": "./assets/images/logo-oa-light.svg",
             "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
+            "backgroundColor": "#000000"
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {
             "supportsTablet": true
         },
         "android": {
+            "edgeToEdgeEnabled": true,
             "adaptiveIcon": {
-                "foregroundImage": "./assets/images/adaptive-icon.png",
+                "foregroundImage": "./assets/images/logo-oa-dark.svg",
                 "backgroundColor": "#ffffff"
             }
         },
         "web": {
             "bundler": "metro",
             "output": "static",
-            "favicon": "./assets/images/favicon.png"
+            "favicon": "./assets/images/favicon.svg"
         },
         "plugins": ["expo-router"],
         "experiments": {
