@@ -6,8 +6,7 @@ This Template is `npx @react-native-reusables/cli@latest init -t minimal-uniwind
 
 ## How to run
 
-0. Make sure (`git status`) you are on the template branch (`git checkout template`)
-1. `cd .\react-native-tutorial`
+1. Make sure (`git status`) you are on the template branch (`git checkout template`)
 2. `npm i`
 3. `npm run dev`
 4. Open Expo Go on your mobile device/simulator and scan the QR Code.
