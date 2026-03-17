@@ -6,39 +6,105 @@ icon: "user"
 keywords: ["journal entry", "developer log", "contribution", "reflection"]
 ---
 
-<Update label="12.03.2026" description="Day 5">
+
+<Update label="26.02.2026" tags={Introduction} description="Day 1">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
-      Today we could roughly finish the expo go App for OrariAperti 🥳. ([PR](https://github.com/IMS-coding-projects/V-App/pull/6))
+      Today we got an introduction of the V-App task and we could decide what Tech-Stack we are going to use. For anything else we did not have enough time.
     </Accordion>
     <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Hmmm.... No not really.... Since we already had react frontend components, we just had to port them to react native, which was easier then I expected.... There was only one small challenge/bug I experienced while implementing the components. Instead of using the `View` component of `react-native`, I imported `View` from `lucide-react-native` which I did not know was this icon: <Icon icon="view" iconType="solid" />..... It took me a looooong time to realise this small mistake since there were no explicit errors, but just very weird behaviour.
+      Since it was the first day, there weren't many challanges... Maybe as a challange is to understand the tech stack. Like what component does what in the whole (metro/expo/uniwind/react native and many more)
     </Accordion>
     <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Like after spending 20minutes of trying to debug it, I went to check the imports and there I eventually found it...😅
+      Time for research. That clarified everything.
     </Accordion>
     <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      I think I understood how react native, expo go and also expo plugins work👍👍.
+      I like this approach since it allows flexibility and also allows you to learn into specific things, that interest you.
     </Accordion>
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      In the commits today I've also refactored files to split the logic, structure and styling as much as possible to follow the MVC Pattern. You can see this well in our [validator.ts](https://github.com/IMS-coding-projects/V-App/blob/dev/frontend/lib/validator.ts).
+      _None_
     </Accordion>
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      Nope👍.
+      No, since there wasn't much to do.
     </Accordion>
     <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      For the wrong import I first tried to play with the styling (because that was really weird) but that (obviously) did not help at all.
+      None, since there weren't any unresolved problems.
     </Accordion>
     <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      The issue has already been solved👍👍
+      Nowhere, since there weren't any unresolved problems.
     </Accordion>
     <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Check with my other teammate and the other react native group to coordinate the lesson👍.
+      Understand the Code that we got from the react native reusables.
     </Accordion>
   </AccordionGroup>
 </Update>
 
-<Update label="11.03.2026" description="Day 4">
+<Update label="03.03.2026" tags={Libraries} description="Day 2">
+  <AccordionGroup>
+    <Accordion icon="circle-check" title="What was accomplished today?">
+      Today I've setup the documentation project (this mintlify instance) and also fixed some bugs in it.
+    </Accordion>
+    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
+      No challanges. It just took time.
+    </Accordion>
+    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
+      _None._
+    </Accordion>
+    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
+      _None._
+    </Accordion>
+    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
+      I did not really program anything today. I only read the module files and created the documentation site accordingly.
+    </Accordion>
+    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
+      No
+    </Accordion>
+    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
+      _None._
+    </Accordion>
+    <Accordion icon="search" title="Where could further work begin to solve the issue?">
+      _None._
+    </Accordion>
+    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
+      For the next Day I am planning to do some programming and work at the Documentation.
+    </Accordion>
+  </AccordionGroup>
+</Update>
+
+<Update label="05.03.2026" tags={Implementation} description="Day 3">
+  <AccordionGroup>
+    <Accordion icon="circle-check" title="What was accomplished today?">
+      Today I fixed some scaffolding issues with docker and also fixed some SVG issues with expo.
+    </Accordion>
+    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
+      Yes. Today there were several challanges, like SVG rendering but also the navigation.
+    </Accordion>
+    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
+      For this we used [svg to react converters](https://www.svgviewer.dev/svg-to-react-jsx) and the [expo documentation](https://docs.expo.dev/) aswell. We also started reading the navigation part of the expo doc so that we can start implementing it the next time.
+    </Accordion>
+    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
+      We got much technical insight into how expo/react native works. This allowes us to be more efficient later on.👍👍
+    </Accordion>
+    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
+      _None really...._
+    </Accordion>
+    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
+      I mean like every understanding task, one runs into a problem pretty fast but also finds solutions. (thanks to stackoverflow/google/AI)
+    </Accordion>
+    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
+      _N/A_
+    </Accordion>
+    <Accordion icon="search" title="Where could further work begin to solve the issue?">
+      The issue(s) has already been solved👍👍
+    </Accordion>
+    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
+      Start moving the react logic from [the existing frontend](https://github.com/IMS-coding-projects/M347/tree/main/OrariAperti/frontend/src/components) to the mobile app and also implement a good navigation.
+    </Accordion>
+  </AccordionGroup>
+</Update>
+
+
+<Update label="11.03.2026" tags={Implementation} description="Day 4">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
       Today I started with the implementation of the expo app. That is navigation and testing client server connection (phone ←→ OrariApertiBackend). I could already start porting [some things from the existing frontend to the app.](https://github.com/IMS-coding-projects/M347/tree/main/OrariAperti/frontend/src/components)
@@ -70,98 +136,34 @@ keywords: ["journal entry", "developer log", "contribution", "reflection"]
   </AccordionGroup>
 </Update>
 
-<Update label="05.03.2026" description="Day 3">
+<Update label="12.03.2026" tags={Implementation} description="Day 5">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
-      Today I fixed some scaffolding issues with docker and also fixed some SVG issues with expo.
+      Today we could roughly finish the expo go App for OrariAperti 🥳. ([PR](https://github.com/IMS-coding-projects/V-App/pull/6))
     </Accordion>
     <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Yes. Today there were several challenges, like SVG rendering but also the navigation.
+      Hmmm.... No not really.... Since we already had react frontend components, we just had to port them to react native, which was easier then I expected.... There was only one small challenge/bug I experienced while implementing the components. Instead of using the `View` component of `react-native`, I imported `View` from `lucide-react-native` which I did not know was this icon: <Icon icon="view" iconType="solid" />..... It took me a looooong time to realise this small mistake since there were no explicit errors, but just very weird behaviour.
     </Accordion>
     <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      For this we used [svg to react converters](https://www.svgviewer.dev/svg-to-react-jsx) and the [expo documentation](https://docs.expo.dev/) aswell. We also started reading the navigation part of the expo doc so that we can start implementing it the next time.
+      Like after spending 20minutes of trying to debug it, I went to check the imports and there I eventually found it...😅
     </Accordion>
     <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      We got much technical insight into how expo/react native works. This allowes us to be more efficient later on.👍👍
+      I think I understood how react native, expo go and also expo plugins work👍👍.
     </Accordion>
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      _None really...._
+      In the commits today I've also refactored files to split the logic, structure and styling as much as possible to follow the MVC Pattern. You can see this well in our [validator.ts](https://github.com/IMS-coding-projects/V-App/blob/dev/frontend/lib/validator.ts).
     </Accordion>
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      I mean like every understanding task, one runs into a problem pretty fast but also finds solutions. (thanks to stackoverflow/google/AI)
+      Nope👍.
     </Accordion>
     <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      _N/A_
+      For the wrong import I first tried to play with the styling (because that was really weird) but that (obviously) did not help at all.
     </Accordion>
     <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      The issue(s) has already been solved👍👍
+      The issue has already been solved👍👍
     </Accordion>
     <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Start moving the react logic from [the existing frontend](https://github.com/IMS-coding-projects/M347/tree/main/OrariAperti/frontend/src/components) to the mobile app and also implement a good navigation.
-    </Accordion>
-  </AccordionGroup>
-</Update>
-
-<Update label="03.03.2026" description="Day 2">
-  <AccordionGroup>
-    <Accordion icon="circle-check" title="What was accomplished today?">
-      Today I've setup the documentation project (this mintlify instance) and also fixed some bugs in it.
-    </Accordion>
-    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      No challenges. It just took time.
-    </Accordion>
-    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      _None._
-    </Accordion>
-    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      _None._
-    </Accordion>
-    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      I did not really program anything today. I only read the module files and created the documentation site accordingly.
-    </Accordion>
-    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      No
-    </Accordion>
-    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      _None._
-    </Accordion>
-    <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      _None._
-    </Accordion>
-    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      For the next Day I am planning to do some programming and work at the Documentation.
-    </Accordion>
-  </AccordionGroup>
-</Update>
-
-<Update label="26.02.2026" description="Day 1">
-  <AccordionGroup>
-    <Accordion icon="circle-check" title="What was accomplished today?">
-      Today we got an introduction of the V-App task and we could decide what Tech-Stack we are going to use. For anything else we did not have enough time.
-    </Accordion>
-    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Since it was the first day, there weren't many challenges... Maybe as a challenge is to understand the tech stack. Like what component does what in the whole (metro/expo/uniwind/react native and many more)
-    </Accordion>
-    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Time for research. That clarified everything.
-    </Accordion>
-    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      I like this approach since it allows flexibility and also allows you to learn into specific things, that interest you.
-    </Accordion>
-    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      _None_
-    </Accordion>
-    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      No, since there wasn't much to do.
-    </Accordion>
-    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      None, since there weren't any unresolved problems.
-    </Accordion>
-    <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Nowhere, since there weren't any unresolved problems.
-    </Accordion>
-    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Understand the Code that we got from the react native reusables.
+      Check with my other teammate and the other react native group to coordinate the lesson👍.
     </Accordion>
   </AccordionGroup>
 </Update>
