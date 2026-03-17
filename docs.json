@@ -114,16 +114,7 @@
     "library": "lucide"
   },"background": {"decoration": "windows"},
   "contextual": {
-    "options": [
-     "chatgpt",
-     "view",
-     "copy",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+    "options": ["chatgpt", "claude", "perplexity", "grok", "cursor", "vscode", "copy", "mcp"]
   },
   "footer": {
     "socials": {
