@@ -1,0 +1,80 @@
+---
+title: "Installation & First run"
+description: "Clone the V-App template, install dependencies, and open the app in Expo Go."
+icon: "download"
+keywords: ["installation", "setup", "expo go", "template"]
+mode: "wide"
+---
+
+The goal of this page is that you can **run/see the V-App template on a real device with Expo Go** and see the initial Home / Settings tabs.
+
+<Steps>
+  <Step title="Get the code">
+    Clone the V-App repository into a folder:
+
+    ```bash
+    # git will automatically make a new folder called V-App
+    git clone https://github.com/IMS-coding-projects/V-App.git
+    cd V-App
+    ```
+
+    Switch to the `template` branch, which contains the React Native + Expo project we prepared for you:
+
+    ```bash
+    git checkout template
+    ```
+
+    This branch is based on the React Native Reusables CLI `minimal-uniwind` template and has all React Native Reusables components pre-installed. [_More Information_](https://github.com/IMS-coding-projects/V-App/tree/template#:~:text=This%20Template%20is%20npx%20%40react%2Dnative%2Dreusables/cli%40latest%20init%20%2Dt%20minimal%2Duniwind%20but%20without%20the%20default%20placeholders)
+  </Step>
+
+  <Step title="Install dependencies">
+    Inside the repo, move into the Expo app folder:
+
+    ```bash
+    cd react-native-tutorial
+    ```
+
+    Then install the npm dependencies:
+
+    ```bash
+    npm install
+    ```
+
+    This will install Expo, React Native, Uniwind, React Native Reusables and all other libraries you need to run the app.
+  </Step>
+
+  <Step title="Start the development server">
+    Start the Expo development server:
+
+    ```bash
+    npm run dev
+    ```
+
+    This runs `expo start` under the hood and should show a QR code in your terminal. Make sure that your terminal window is big enough to see it's output.
+  </Step>
+
+  <Step title="Open the app in Expo Go">
+    Install **Expo Go** from the iOS App Store or Google Play if you do not have it yet.
+
+    - On iOS, open the Camera app and scan the QR code. Confirm the prompt to open in Expo Go.
+    - On Android, open the Expo Go app and use the built-in QR scanner.
+
+    After the Metro bundler finishes, you should see the V-App tutorial running on your phone with a bottom tab bar containing **Home** and **Settings**.
+  </Step>
+</Steps>
+
+<Warning>
+If the bundle does not load or Expo cannot establish a connection, check your device or app settings to ensure that they are not preventing you from accessing devices on your local area network (LAN). **VPNs are a common cause of this issue.**
+</Warning>
+
+<Note>
+You can format the codebase at any time by running:
+```bash
+npm run format
+```
+This uses Prettier to keep the code style consistent.
+</Note>
+
+## Task 1
+
+Once your app runs, make a small change in `app/(tabs)/home.tsx` (for example, change the text), save the file, and check on your device if it updated. Play with it a little to notice how the App works/behaves. Recall from the last React Native group that `<View>` is basically a `<div>` and `<Text>` basically a `<p>`. You might notice now that you are importing things now from `@/components/ui/text` and also have Tailwind styling(!?). __Keep any questions and we will get back to those after the navigation!__

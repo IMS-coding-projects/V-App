@@ -1,0 +1,44 @@
+---
+title: "React Native Reusables"
+description: "Get started with the React Native Reusables component library."
+icon: "blocks"
+keywords: ["components", "react native reusables", "ui library"]
+mode: "wide"
+---
+
+The template you are using right now is generated from the **React Native Reusables** CLI using the `minimal-uniwind` template, and then we added all UI components, so you can use them immediately without extra setup.
+
+You can explore the full component catalog at the official docs:  
+[https://reactnativereusables.com/docs/components/accordion](https://reactnativereusables.com/docs/components/accordion)
+
+### How components are wired into the template
+
+The CLI has already copied the reusable components into the project and wired them up with [Uniwind](https://uniwind.dev/) (this is [tailwind](https://tailwindcss.com/) for react native and also [manages the global theme state](https://docs.uniwind.dev/theming/basics)) and the app theme.
+
+- RNR Components live in the`@/components/ui/` directory. You can import them like: `@/components/ui/<component_name>`
+- They are styled with Tailwind-like classes via Uniwind, so you pass `className` instead of `style` and the design stays consistent across the app.
+- They automatically respect the current light / dark theme set by Uniwind.
+
+```tsx ButtonExample.tsx
+import { Button } from "@/components/ui/button"
+import { Icon } from "@/components/ui/icon"
+import { SunIcon } from "lucide-react-native"
+
+export function ExampleButton() {
+  return (
+    <Button
+      variant="ghost" // RNR is ui.shadcn.com based. You can check out different button variants here: https://reactnativereusables.com/docs/components/button#examples
+      className="rounded-full" // you can use tailwindcss syntax now to style your component
+      onPressIn={() => console.log("Pressed")}
+    >
+      <Icon as={SunIcon} className="size-5" /> {/* Icons are a little special. There is a Icon Component, where you have to pass the actual icon in the `as` prop. The Icons you can import from lucide-react-native which is https://lucide.dev under the hood*/}
+    </Button>
+  )
+}
+```
+
+Here, `Button` and `Icon` are React Native Reusables components that accept Tailwind-like `className` props and pick up the active theme automatically.
+
+### Task 3: modify the profile tab with RNR
+
+Modify the Profile screen that there is a [card](https://reactnativereusables.com/docs/components/card) with an [input](https://reactnativereusables.com/docs/components/input) and a [select](https://reactnativereusables.com/docs/components/select) element and on button/submit click the content should be displayed below the card in a Text element.

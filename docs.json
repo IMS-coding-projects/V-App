@@ -39,7 +39,10 @@
           {
             "group": "Tutorial",
             "pages": [
-              "tutorial/settings"
+              "tutorial/installation",
+              "tutorial/navigation",
+              "tutorial/rnr",
+              "tutorial/theming"
             ]
           }
         ]
@@ -88,7 +91,7 @@
     "404": {
       "redirect": false,
       "title": "The Page Has Gone Undercover.",
-      "description": "This page is in witness protection. Even we don’t know where it went. **[Go back home](/)**"
+      "description": "This page is in witness protection. Even we don't know where it went. **[Go back home](/)**"
     }
   },
   "logo": {
@@ -112,9 +115,21 @@
   },
   "icons": {
     "library": "lucide"
-  },"background": {"decoration": "windows"},
+  },
+  "background": {
+    "decoration": "windows"
+  },
   "contextual": {
-    "options": ["chatgpt", "claude", "perplexity", "grok", "cursor", "vscode", "copy", "mcp"]
+    "options": [
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "grok",
+      "cursor",
+      "vscode",
+      "copy",
+      "mcp"
+    ]
   },
   "footer": {
     "socials": {

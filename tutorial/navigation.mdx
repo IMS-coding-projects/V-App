@@ -1,0 +1,198 @@
+---
+title: "Navigation with Expo Router"
+description: "Understand how to navigate with Expo Router."
+icon: "route"
+keywords: ["navigation", "expo router", "stack", "tabs"]
+mode: "wide"
+---
+
+The V-App template uses **Expo Router's file-based routing** with a **root stack** and an inner **tabs layout** to structure the app.
+
+### File-based routing overview
+
+Expo Router automatically turns files in the `app/` directory into _**screens**_ (**not pages!**):
+
+- `app/_layout.tsx` defines a root `Stack` navigator that wraps the whole app and currently registers the `(tabs)` group as a stack screen.
+- `app/(tabs)/_layout.tsx` defines the `Tab navigator`, with individual tabs like `home` and `settings` mapped to files in the same folder.
+- `app/(tabs)/home.tsx` and `app/(tabs)/settings.tsx` are the screens shown inside those tab routes.
+
+This matches Expo Router's recommended pattern of nesting tabs inside a stack to keep a clear navigation tree.
+
+You might have noticed that we do not have a App.tsx/jsx which you might know from Vite+React Setups. However in Expo Router:
+
+> Every project should have a `_layout.tsx` file directly inside the `src/app` directory. This file is rendered before any other route in your app and is where you would put the initialization code that may have previously gone inside an `App.jsx` file, such as loading fonts, setting up theme providers, or interacting with the splash screen. For example, the default template wraps the app with a `ThemeProvider` for dark and light mode support and renders the `AppTabs` component from this file.
+> <br></br><br></br>
+> _From: [https://docs.expo.dev/router/basics/core-concepts](https://docs.expo.dev/router/basics/core-concepts/#4-root-_layouttsx-replaces-appjsxtsx)_
+
+If you are familliar with [Next.js](https://nextjs.org), you might have noticed simmilarities, well that is because both Routers basically use the same file-based routing mechanism.
+
+### Root stack layout
+
+The root layout wraps the app in navigation theming and sets up a stack navigator:
+
+```tsx app/_layout.tsx (simplified)
+import { Stack } from "expo-router"
+import { HeaderTitle } from "@/components/header/HeaderTitle"
+import { ThemeToggle } from "@/components/header/ThemeToggle"
+
+export default function RootLayout() {
+
+  return (
+    <Stack
+      screenOptions={{
+        // Apply a default style to all headers
+        headerTitleStyle: { fontWeight: "bold" },
+      }}
+    >
+      {/* Register the "(tabs)" route group as a screen */}
+      <Stack.Screen
+        name="(tabs)" // This corresponds to the folder app/(tabs)
+        options={{
+          // Custom header title component
+          headerTitle: () => <HeaderTitle />,
+
+          // Show the header
+          headerShown: true,
+
+          // Disable the back button (since we are simulating that the /tabs screen is the "root screen")
+          headerBackVisible: false,
+
+          // Add a button on the right side of the header for the Theme Toggle
+          headerRight: () => <ThemeToggle />,
+        }}
+      />
+    </Stack>
+  )
+}
+```
+
+Here, the stack contains a single child route called `(tabs)`, which renders the tab navigator and shows a shared header with the title and the theme toggle. It is also common pracitce to keep non-navigation components outside the `src/app` directory, like in the `@/components/` directory.
+
+### Tabs layout: native tabs + cross‑platform fallback
+
+The template uses native tabs on iOS and standard bottom tabs for other platforms:
+
+```tsx app/(tabs)/_layout.tsx (simplified)
+import { Tabs } from "expo-router"
+import { NativeTabs, Icon, Label } from "expo-router/unstable-native-tabs"
+import { Ionicons } from "@expo/vector-icons"
+import { Platform } from "react-native"
+
+export default function TabsLayout() {
+  // If the app is running on iOS, use native tabs
+  if (Platform.OS === "ios") {
+    return (
+      <NativeTabs>
+        {/* name="home" tells Expo Router which file to use. home --> ./home.tsx */}
+        <NativeTabs.Trigger name="home">
+          {/* Label shown under the icon */}
+          <Label>Home</Label>
+          {/* SF Symbols icon (iOS only). You can use a filled icon if the tabs is selected like this */}
+          <Icon sf={{ default: "house", selected: "house.fill" }} />
+        </NativeTabs.Trigger>
+
+        <NativeTabs.Trigger name="settings">
+          <Label>Settings</Label>
+          {/* Same icon for selected/unselected */}
+          <Icon sf={{ default: "gear", selected: "gear" }} />
+        </NativeTabs.Trigger>
+      </NativeTabs>
+    )
+  }
+
+  // Fallback for Android and web
+  return (
+    <Tabs
+      screenOptions={{
+        // Hide the header since the stack already provides one. NativeTabs for iOS does not need this, since that component does not add the header at all.
+        headerShown: false,
+      }}
+    >
+      {/* Home tab */}
+      <Tabs.Screen
+        name="home" // Must match app/(tabs)/home.tsx
+        options={{
+          title: "Home",
+
+          // Icon renderer function
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+
+      {/* Settings tab */}
+      <Tabs.Screen
+        name="settings" // Must match app/(tabs)/settings.tsx
+        options={{
+          title: "Settings",
+
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+  )
+}
+```
+
+- On **iOS**, `NativeTabs` renders a platform-native tab bar with SF Symbols icons.
+- On **Android / web**, the regular `Tabs` layout from Expo Router is used with Ionicons.
+
+<Info>
+The file names `home.tsx` and `settings.tsx` must match the `name` values used in the tabs layout for routing to work automatically.
+</Info>
+
+More information regarding Tabs can be found [here (web/android)](https://docs.expo.dev/router/advanced/tabs/) and [here (iOS)](https://docs.expo.dev/router/advanced/native-tabs/).
+
+### Task 2: Screens
+
+Create a new screen (let's call it the `detail` screen) that is pushed onto the stack from the Home tab:
+
+<Steps>
+  <Step title="Create the details Screen">
+```tsx app/details.tsx
+// Import components
+import { View, Text, Button } from "react-native"
+import { Text } from '@/components/ui/text'
+import { Button } from '@/components/ui/button'
+
+// Import the router to control navigation
+import { router } from "expo-router"
+
+export default function DetailsScreen() {
+  return (
+    // Container view
+    <View>
+      <Text>Details screen</Text>
+
+      {/* Button to go back to the previous screen */}
+      <Button
+        title="Go back"
+        onPress={() => router.back()} // Pops the current screen off the stack
+      />
+    </View>
+  )
+}
+```
+</Step>
+
+<Step title="Add navigation to details from Home">
+
+In `app/(tabs)/home.tsx`, add a button that navigates to `/details`
+
+<Note>
+1. In React Native the `onClick` function is called `onPress`. 
+2. You can use the `router` object from (`expo-router`) to navigate. (`.push('<path>')`)
+</Note>
+
+</Step>
+
+<Step title="Create another Screen and add it as a Tab">
+Now add another screen called `profile` and add it between the Home and Settings tab.
+</Step>
+
+</Steps>
+
+After completing these steps, have a glance at the [router documentation from Router notation till Navigation and then under Navigation Patterns: Stack and Tabs (JS and Native)](https://docs.expo.dev/router/basics/notation/) and feel free to test things with the App until everyone is finished. 

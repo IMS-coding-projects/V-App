@@ -1,0 +1,345 @@
+---
+title: "Theming with Uniwind"
+description: "Understand how global light/dark theme switching works in the template."
+icon: "sun-moon"
+keywords: ["theming", "uniwind", "dark mode", "light mode", "shadcn", "css variables"]
+mode: "wide"
+---
+
+The template's theming is powered by **Uniwind**, which provides a global theme state (light / dark) and Tailwind-style className support for React Native components. The color tokens follow the **shadcn/ui convention** from [ui.shadcn.com](https://ui.shadcn.com/), defined as CSS variables in `global.css` and mirrored in `lib/theme.ts` that you can also change/get the theme variables during runtime.
+
+### App-wide theme state
+
+In `app/_layout.tsx`, the app calls `useUniwind()` to read the current theme and then passes a matching navigation theme into React Navigation's `ThemeProvider`:
+
+```tsx app/_layout.tsx
+import { Mode, NAV_THEME } from "@/lib/theme"
+import { ThemeProvider } from "@react-navigation/native"
+import { useUniwind } from "uniwind"
+
+export default function RootLayout() {
+  const { theme } = useUniwind()
+
+  return (
+    <ThemeProvider value={NAV_THEME[theme as Mode]}>
+      {/* Stack and other providers */}
+    </ThemeProvider>
+  )
+}
+```
+
+- `theme` is managed by Uniwind and can be `"light"` or `"dark"` (or extended with custom themes).
+- `NAV_THEME` maps these modes to React Navigation color schemes, so headers, backgrounds and text in the navigation UI adapt automatically.
+
+The layout also imports `@/global.css`, which contains the Tailwind-style design tokens (such as `bg-background`, `text-foreground`) that change values depending on the active theme. This comes from the [ui.shadcn.com](https://ui.shadcn.com/themes#themes) theming logic.
+
+### CSS variables in `global.css`
+
+`global.css` defines all color tokens inside `@variant light` and `@variant dark` blocks. Uniwind picks up these variables and makes them available as Tailwind `className` utilities automatically.
+
+```css global.css
+@layer theme {
+  :root {
+    @variant light {
+      --color-background:          oklch(1 0 0);
+      --color-foreground:          oklch(0.145 0 0);
+      --color-card:                oklch(1 0 0);
+      --color-card-foreground:     oklch(0.145 0 0);
+      --color-popover:             oklch(1 0 0);
+      --color-popover-foreground:  oklch(0.145 0 0);
+      --color-primary:             oklch(0.205 0 0);
+      --color-primary-foreground:  oklch(0.985 0 0);
+      --color-secondary:           oklch(0.97 0 0);
+      --color-secondary-foreground:oklch(0.205 0 0);
+      --color-muted:               oklch(0.97 0 0);
+      --color-muted-foreground:    oklch(0.556 0 0);
+      --color-accent:              oklch(0.97 0 0);
+      --color-accent-foreground:   oklch(0.205 0 0);
+      --color-destructive:         oklch(0.577 0.245 27.325);
+      --color-border:              oklch(0.922 0 0);
+      --color-input:               oklch(0.922 0 0);
+      --color-ring:                oklch(0.708 0 0);
+    }
+
+    @variant dark {
+      --color-background:          oklch(0.145 0 0);
+      --color-foreground:          oklch(0.985 0 0);
+      /* ... same keys, different values */
+    }
+  }
+}
+```
+
+<Info>
+You never use these raw CSS variables directly in JSX. Instead, Uniwind converts them into Tailwind-like utility classes you use via `className`. See the table below.
+</Info>
+
+#### CSS variable → className cheatsheet
+
+Each CSS variable has a matching Tailwind class. The color flips automatically when the theme changes - you never need to write `dark:` variants manually.
+
+| CSS variable | `className` utility | Typical use |
+|---|---|---|
+| `--color-background` | `bg-background` | Page / screen background |
+| `--color-foreground` | `text-foreground` | Default body text |
+| `--color-card` | `bg-card` | Card surface |
+| `--color-card-foreground` | `text-card-foreground` | Text on cards |
+| `--color-popover` | `bg-popover` | Dropdowns, tooltips |
+| `--color-popover-foreground` | `text-popover-foreground` | Text in popovers |
+| `--color-primary` | `bg-primary` / `text-primary` | Primary action color |
+| `--color-primary-foreground` | `text-primary-foreground` | Text on primary |
+| `--color-secondary` | `bg-secondary` / `text-secondary` | Secondary elements |
+| `--color-secondary-foreground` | `text-secondary-foreground` | Text on secondary |
+| `--color-muted` | `bg-muted` | Subtle backgrounds |
+| `--color-muted-foreground` | `text-muted-foreground` | Placeholder / hint text |
+| `--color-accent` | `bg-accent` | Highlighted/hover states |
+| `--color-accent-foreground` | `text-accent-foreground` | Text on accent |
+| `--color-destructive` | `bg-destructive` / `text-destructive` | Errors, delete actions |
+| `--color-border` | `border-border` | Component borders |
+| `--color-input` | `border-input` | Input field borders |
+| `--color-ring` | `ring` / `ring-ring` | Focus rings |
+
+Example - a custom card that uses semantic tokens and adapts to both themes automatically:
+
+```tsx ThemingExample.tsx
+import { View, Text } from "react-native"
+
+export function InfoCard({ message }: { message: string }) {
+  return (
+    <View className="bg-card border border-border rounded-lg p-4">
+      <Text className="text-card-foreground font-semibold">Info</Text>
+      <Text className="text-muted-foreground mt-1">{message}</Text>
+    </View>
+  )
+}
+```
+
+### The two files that define your theme
+
+The theme is split across two files that must always be kept in sync:
+
+<CardGroup cols={2}>
+  <Card title="global.css" icon="css3">
+    Defines colors as **CSS variables** inside `@variant light` and `@variant dark` blocks. Used by Uniwind to generate the `className` utilities.
+  </Card>
+  <Card title="lib/theme.ts" icon="file-code">
+    Mirrors the same colors like in `global.css` for React Navigation's `ThemeProvider` (since React Navigation does not read CSS variables). Contains `THEME` and `NAV_THEME` exports.
+  </Card>
+</CardGroup>
+
+When you change a color in `global.css`, you **must** update the matching entry in `lib/theme.ts` with an equivalent HSL value, otherwise the navigation header will show a different color than the rest of the app.
+
+```ts lib/theme.ts (excerpt)
+export const THEME = {
+  light: {
+    background: 'hsl(0 0% 100%)',   // matches --color-background light
+    foreground: 'hsl(0 0% 3.9%)',   // matches --color-foreground light
+    primary:    'hsl(0 0% 9%)',     // matches --color-primary light
+    // ...
+  },
+  dark: {
+    background: 'hsl(0 0% 3.9%)',
+    foreground: 'hsl(0 0% 98%)',
+    primary:    'hsl(0 0% 98%)',
+    // ...
+  },
+}
+```
+
+### ThemeToggle: switching light / dark mode
+
+The `ThemeToggle` component in the header provides a single button to flip the theme:
+
+```tsx ThemeToggle.tsx
+import { MoonStarIcon, SunIcon } from "lucide-react-native"
+import { Uniwind, useUniwind } from "uniwind"
+import { Icon } from "@/components/ui/icon"
+import { Button } from "@/components/ui/button"
+import { Mode } from "@/lib/theme"
+
+const THEME_ICONS = {
+  light: SunIcon,
+  dark: MoonStarIcon,
+}
+
+export function ThemeToggle() {
+  const { theme } = useUniwind()
+
+  function toggleTheme() {
+    const newTheme = theme === "dark" ? "light" : "dark"
+    Uniwind.setTheme(newTheme)
+  }
+
+  return (
+    <Button
+      onPressIn={toggleTheme}
+      size="icon"
+      variant="ghost"
+      className="ios:size-9 web:mx-4 rounded-full"
+    >
+      <Icon as={THEME_ICONS[theme as Mode]} className="size-5" />
+    </Button>
+  )
+}
+```
+
+Key points:
+
+- `useUniwind()` gives you the current theme.
+- Calling `Uniwind.setTheme(newTheme)` updates the global theme state, which immediately re-renders components using Uniwind classes.
+- The button and icon are React Native Reusables components styled with Tailwind-like class names, and their appearance (colors, background, icon) follows the active theme.
+
+### How theming affects components
+
+Because Uniwind integrates with React Native's `className` prop, every component that uses classes like `bg-background` and `text-foreground` automatically switches style when the theme changes.
+
+This includes:
+
+- Navigation containers and headers (via `NAV_THEME` in `ThemeProvider`).
+- React Native Reusables components such as `Button`, `Card`, etc., which are wired to Uniwind under the hood.
+- Any custom components where you use Tailwind-like classes in `className`.
+
+<Info>
+You do not need to manually manage a separate theme context. Uniwind's global theme plus the existing `ThemeProvider` setup means your job is only to use the right `className` utilities.
+</Info>
+
+### Task 4: Change the Theme
+
+<Steps>
+  <Step title="Read the Documentation">
+    Firstly read the documentation (it's not that much... don't worry :)
+    - [https://reactnativereusables.com/docs/customization](https://reactnativereusables.com/docs/customization#themets:~:text=or%20switching%20styles.-,global.css,-Defines%20your%20theme)
+    - [https://ui.shadcn.com/docs/theming](https://ui.shadcn.com/docs/theming#:~:text=%7D-,Convention,-We%20use%20a)
+
+    And choose what theme you want from here:
+    - [https://ui.shadcn.com/themes](https://ui.shadcn.com/themes)
+  </Step>
+  <Step title="Update theme.ts and global.css">
+    After finding a nice **Tailwind v3** theme version, copy the CSS variables into `global.css` under the correct `@variant light` / `@variant dark` blocks.
+
+    Then open `lib/theme.ts` and update every matching HSL value in `THEME.light` and `THEME.dark` to reflect your new colors. 
+    
+    We recommend doing this with AI since it is pure meticulous work:
+
+    <Prompt
+    description="Press 'Copy prompt' and append the the new `app/globals.css` to the prompt"
+    icon="bot"
+    actions={["copy"]}
+    >
+    Read all CSS color variables defined under `@variant light` and `@variant dark` inside the `@layer theme` block in `global.css`/The text below. For every `--color-*` variable, convert its value to an HSL string and update the matching key in the `light` and `dark` entries of the `THEME` object in `lib/theme.ts`.
+
+    Conversion rules:
+    - CSS variable `--color-background` → key `background`
+    - CSS variable `--color-foreground` → key `foreground`
+    - CSS variable `--color-card-foreground` → key `cardForeground` (camelCase)
+    - CSS variable `--color-popover-foreground` → key `popoverForeground` (camelCase)
+    - CSS variable `--color-primary-foreground` → key `primaryForeground` (camelCase)
+    - CSS variable `--color-secondary-foreground` → key `secondaryForeground` (camelCase)
+    - CSS variable `--color-muted-foreground` → key `mutedForeground` (camelCase)
+    - CSS variable `--color-accent-foreground` → key `accentForeground` (camelCase)
+    - CSS variable `--color-chart-1` through `--color-chart-5` → keys `chart1` through `chart5`
+    - All other `--color-*` variables follow the same camelCase pattern
+    - Do NOT touch the `radius` key — it stays as-is
+
+    Output give the lib/theme.ts file back with the new hsl values!
+
+    Additional rules:
+    - Keep all existing keys and their order in `THEME.light` and `THEME.dark`
+    - Add new keys at the end of the block if a CSS variable has no matching key yet
+    - If a key in `theme.ts` has no matching CSS variable in `global.css`, comment it out with `// stale: no matching CSS variable`
+    - Do NOT modify `NAV_THEME` or the `Mode` type
+    - Preserve the original file formatting and import statements
+
+    ```ts theme.ts (layout example)
+    import { DarkTheme, DefaultTheme, type Theme } from '@react-navigation/native';
+
+export type Mode = 'light' | 'dark'
+
+export const THEME = {
+    light: {
+        background: 'hsl(0 0% 100%)',
+        foreground: 'hsl(0 0% 3.9%)',
+        card: 'hsl(0 0% 100%)',
+        cardForeground: 'hsl(0 0% 3.9%)',
+        popover: 'hsl(0 0% 100%)',
+        popoverForeground: 'hsl(0 0% 3.9%)',
+        primary: 'hsl(0 0% 9%)',
+        primaryForeground: 'hsl(0 0% 98%)',
+        secondary: 'hsl(0 0% 96.1%)',
+        secondaryForeground: 'hsl(0 0% 9%)',
+        muted: 'hsl(0 0% 96.1%)',
+        mutedForeground: 'hsl(0 0% 45.1%)',
+        accent: 'hsl(0 0% 96.1%)',
+        accentForeground: 'hsl(0 0% 9%)',
+        destructive: 'hsl(0 84.2% 60.2%)',
+        border: 'hsl(0 0% 89.8%)',
+        input: 'hsl(0 0% 89.8%)',
+        ring: 'hsl(0 0% 63%)',
+        radius: '0.625rem',
+        chart1: 'hsl(12 76% 61%)',
+        chart2: 'hsl(173 58% 39%)',
+        chart3: 'hsl(197 37% 24%)',
+        chart4: 'hsl(43 74% 66%)',
+        chart5: 'hsl(27 87% 67%)',
+    },
+    dark: {
+        background: 'hsl(0 0% 3.9%)',
+        foreground: 'hsl(0 0% 98%)',
+        card: 'hsl(0 0% 3.9%)',
+        cardForeground: 'hsl(0 0% 98%)',
+        popover: 'hsl(0 0% 3.9%)',
+        popoverForeground: 'hsl(0 0% 98%)',
+        primary: 'hsl(0 0% 98%)',
+        primaryForeground: 'hsl(0 0% 9%)',
+        secondary: 'hsl(0 0% 14.9%)',
+        secondaryForeground: 'hsl(0 0% 98%)',
+        muted: 'hsl(0 0% 14.9%)',
+        mutedForeground: 'hsl(0 0% 63.9%)',
+        accent: 'hsl(0 0% 14.9%)',
+        accentForeground: 'hsl(0 0% 98%)',
+        destructive: 'hsl(0 70.9% 59.4%)',
+        border: 'hsl(0 0% 14.9%)',
+        input: 'hsl(0 0% 14.9%)',
+        ring: 'hsl(300 0% 45%)',
+        radius: '0.625rem',
+        chart1: 'hsl(220 70% 50%)',
+        chart2: 'hsl(160 60% 45%)',
+        chart3: 'hsl(30 80% 55%)',
+        chart4: 'hsl(280 65% 60%)',
+        chart5: 'hsl(340 75% 55%)',
+    },
+};
+
+export const NAV_THEME: Record<'light' | 'dark', Theme> = {
+    light: {
+        ...DefaultTheme,
+        colors: {
+            background: THEME.light.background,
+            border: THEME.light.border,
+            card: THEME.light.card,
+            notification: THEME.light.destructive,
+            primary: THEME.light.primary,
+            text: THEME.light.foreground,
+        },
+    },
+    dark: {
+        ...DarkTheme,
+        colors: {
+            background: THEME.dark.background,
+            border: THEME.dark.border,
+            card: THEME.dark.card,
+            notification: THEME.dark.destructive,
+            primary: THEME.dark.primary,
+            text: THEME.dark.foreground,
+        },
+    },
+};
+    ```
+
+    NOW CREATE THE THEME.TS BASED ON THE FOLLOWING TAILWIND V3:
+    </Prompt>
+
+
+    Save both files check if you can see your new color scheme applied everywhere - components, navigation header, etc.
+  </Step>
+</Steps>
