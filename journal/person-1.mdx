@@ -1,6 +1,6 @@
 ---
 title: "Journal - Person 1"
-description: "Personal reflections, and development updates from Person 1.  ( D )"
+description: "Personal reflections and development updates from Person 1.  ( D )"
 sidebarTitle: "Person 1"
 icon: "user"
 keywords: ["journal entry", "developer log", "contribution", "reflection"]
@@ -9,497 +9,160 @@ keywords: ["journal entry", "developer log", "contribution", "reflection"]
 <Update label="26.02.2026" description="Day 1">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
-      Describe what you achieved today.
+      - Installed Expo locally and created a first test project to explore the tooling.  
+      - Read the official Expo Router "Core concepts" documentation to understand file-based routing.  
+      - Created a small local playground app to experiment with basic navigation behavior.  
 
-      - List completed tasks
-      - Mention implemented features
-      - Include major milestones
-
-      📸 Attach a daily screenshot of the Project Board here.
     </Accordion>
+
     <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Describe the challenges you faced and successfully solved.
-
-      Explain:
-
-      - What was the core problem?
-      - Why did it occur?
-      - How did you identify the issue?
+      - Core problem: Understanding Expos file-based routing style without prior Next.js experience to compare it to.  
+      - It occurred because routes are derived directly from the folder and file structure, which felt very different from traditional route configuration.  
+      - I identified the issue when I was unsure how screens were picked up from the `app/` tree and clarified it by reading the docs and discussing questions with a colleague.  
     </Accordion>
+
     <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Describe the key actions that led to the solution.
-
-      Examples:
-
-      - Debugging process
-      - Research steps
-      - Refactoring code
-      - Team communication
+      - Carefully walking through the Expo Router core-concepts documentation and examples.  
+      - Recreating a minimal route setup in a local test project to see how file names map to screens.  
+      - Asking a colleague targeted questions to validate my oberservation of how routing and layouts work.  
     </Accordion>
+
     <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      Reflect on what you learned.
-
-      Consider:
-
-      - Technical insights
-      - Workflow improvements
-      - Tool-related knowledge
-      - Team collaboration insights
+      - Expo Router heavily relies on a clear `app/` folder structure, since files and folders define the navigation tree.  
+      - I understand routing concepts faster when I combine documentation with hands-on experimentation instead of only reading.  
+      - Early questions to a teammate help avoid building on wrong assumptions.  
     </Accordion>
+
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      Derive concrete best practices from your learnings.
-
-      - What would you do differently next time?
-      - What should become a standard approach?
-      - Document the technical procedure clearly so it can be added to the technical documentation.
+      - I will always create a small playground project immediately when learning a new routing system.  
+      - Read official docs, reproduce a minimal example, then validate understanding with a colleague.  
+      - Expo Router basics - `app/` folder represents the route tree, each file is a screen and `_layout.tsx` files wrap related screens instead of a single central `App.tsx`.  
     </Accordion>
+
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      If yes:
-
-      - Describe the problem clearly.
-      - Explain why it could not be solved.
-
-      If no:
-
-      - Briefly state that no unresolved issues remain.
+      - No unresolved technical issues remain the basic routing concepts are clear enough to continue experimenting.  
     </Accordion>
+
     <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      List approaches that did not lead to the desired result.
-
-      - Attempt 1:
-      - Attempt 2:
-      - Why did they fail?
+      - Attempt 1: Trying to understand routing purely by reading without touching code the concepts stayed too abstract.  
+      - Attempt 2: Mapping Expo Router mentally to a classic "manual route config" approach instead of accepting file-based routing as the core concept this caused extra confusion.  
     </Accordion>
+
     <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Suggest possible next steps.
-
-      - Research areas
-      - Refactoring ideas
-      - Alternative technologies
-      - Team discussion topics
+      - Deepen understanding of dynamic routes, route groups and nested layouts in Expo Router.  
+      - Watch or read material specifically focused on `_layout.tsx` and advanced navigation patterns.  
     </Accordion>
+
     <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Summarize:
-
-      - The key challenge
-      - Your attempted solutions
-      - Open questions
-
-      This section should help you quickly explain the situation in the next Daily Meeting.
+      - Key challenge: Getting used to Expos file-based routing and layout concept without prior Next.js experience.  
+      - Attempted solutions: Read core documentation, built a small local test project and clarified open questions with a colleague.  
+      - Open questions: Details of dynamic routes, nested layouts and best practices for structuring larger apps.  
     </Accordion>
   </AccordionGroup>
+</Update>
 
-  <Update label="03.03.2026" description="Day 2">
+<Update label="03.03.2026" description="Day 2">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
-      Describe what you achieved today.
+      - Continued studying Expo Router, focusing on `_layout` files and router notations.  
+      - Tested different route patterns and layouts in the local project to see how the router behaves in practice.  
+      - Integrated the existing Spring Boot backend from the "OrariAperti" project and added Docker configuration for it.  
 
-      - List completed tasks
-      - Mention implemented features
-      - Include major milestones
-
-      📸 Attach a daily screenshot of the Project Board here.
     </Accordion>
+
     <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Describe the challenges you faced and successfully solved.
-
-      Explain:
-
-      - What was the core problem?
-      - Why did it occur?
-      - How did you identify the issue?
+      - Core problem: Understanding how `_layout` files define navigation structure and how route notations map to screens.  
+      - It occurred because Expo Router uses conventions like `_layout.tsx`, grouping folders and dynamic segments that are not obvious from filenames alone.  
+      - I overcame this by translating the documentation examples into concrete experiments inside the local project and observing the results.  
     </Accordion>
+
     <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Describe the key actions that led to the solution.
-
-      Examples:
-
-      - Debugging process
-      - Research steps
-      - Refactoring code
-      - Team communication
+      - Re-reading the layout documentation with a focus on how `_layout.tsx` wraps child routes.  
+      - Building a small route tree with a root layout and nested screens to see which layout wraps which screen.  
+      - Setting up Docker for the Spring Boot backend so it can be started consistently for future integration with the app.  
     </Accordion>
+
     <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      Reflect on what you learned.
-
-      Consider:
-
-      - Technical insights
-      - Workflow improvements
-      - Tool-related knowledge
-      - Team collaboration insights
+      - Each directory in `app/` can own its own `_layout.tsx` and that layout becomes the wrapper for all sibling routes in that directory.  
+      - Trying router notation in a small sandbox app is much more effective than trying to memorize routing rules.  
+      - Having a Dockerized backend prepared early simplifies local development and onboarding for others, I myself didn't need it.  
     </Accordion>
+
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      Derive concrete best practices from your learnings.
-
-      - What would you do differently next time?
-      - What should become a standard approach?
-      - Document the technical procedure clearly so it can be added to the technical documentation.
+      - For future projects, define the root `_layout.tsx` early and plan how route groups map to main UX flows.  
+      - Standard approach for router notation issues: create a minimal directory structure and run the app to see how Expo Router resolves it.  
     </Accordion>
+
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      If yes:
-
-      - Describe the problem clearly.
-      - Explain why it could not be solved.
-
-      If no:
-
-      - Briefly state that no unresolved issues remain.
+      - No major unresolved problems I still need more experience with complex router notations, but basic layouts and routes work.  
     </Accordion>
+
     <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      List approaches that did not lead to the desired result.
-
-      - Attempt 1:
-      - Attempt 2:
-      - Why did they fail?
+      - Attempt 1: Re-reading docs repeatedly without implementing examples, which did not help internalize router notation.  
+      - Attempt 2: Trying to reason about layouts only in theory without checking which screens they actually wrap in a running app.  
     </Accordion>
+
     <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Suggest possible next steps.
-
-      - Research areas
-      - Refactoring ideas
-      - Alternative technologies
-      - Team discussion topics
+      - Investigate advanced routing features: dynamic segments, modals and route groups.  
+      - Draft an internal guide defining recommended folder patterns for this project, so all team members use the same conventions.  
     </Accordion>
+
     <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Summarize:
-
-      - The key challenge
-      - Your attempted solutions
-      - Open questions
-
-      This section should help you quickly explain the situation in the next Daily Meeting.
+      - Key challenge: Understanding `_layout` files and router notations in Expo Router.  
+      - Attempted solutions: In-depth reading of layout docs, hands-on experiments and structuring a test app to observe layout behavior.  
+      - Open questions: How to structure the final `app/` tree for scalability and clarity.  
     </Accordion>
   </AccordionGroup>
+</Update>
 
-  <Update label="05.03.2026" description="Day 3">
+<Update label="05.03.2026" description="Day 3">
   <AccordionGroup>
     <Accordion icon="circle-check" title="What was accomplished today?">
-      Describe what you achieved today.
+      - Implemented and tested navigation between screens using buttons wired to Expo Router.  
+      - Read up on React Native core and reusable components to better understand the building blocks for our UI.  
+      - Added the logo from the previous project for future use in the current apps design.  
 
-      - List completed tasks
-      - Mention implemented features
-      - Include major milestones
-
-      📸 Attach a daily screenshot of the Project Board here.
     </Accordion>
+
     <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Describe the challenges you faced and successfully solved.
-
-      Explain:
-
-      - What was the core problem?
-      - Why did it occur?
-      - How did you identify the issue?
+      - Core problem: Connecting reusable UI components (like buttons) correctly with navigation so that route changes trigger as expected.  
+      - It occurred because reusable components add an abstraction layer and navigation logic must be passed down or handled via hooks in a clean way.  
+      - I solved it by first testing simple navigation with basic buttons, then refactoring the working pattern into more reusable components.  
     </Accordion>
+
     <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Describe the key actions that led to the solution.
-
-      Examples:
-
-      - Debugging process
-      - Research steps
-      - Refactoring code
-      - Team communication
+      - Reviewing React Natives core components documentation to understand the standard primitives like `Card`, `Alert` and `Button`.  
+      - Creating placeholder routing buttons that navigate to different routes and verifying their behavior.  
+      - Gradually wrapping navigation logic in reusable components instead of abstracting everything from the start.  
     </Accordion>
+
     <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      Reflect on what you learned.
-
-      Consider:
-
-      - Technical insights
-      - Workflow improvements
-      - Tool-related knowledge
-      - Team collaboration insights
+      - Implementing navigation with very simple placeholder buttons first makes debugging easier before adding styling and logics.  
+      - Reusing existing assets such as logos early encourages consistent visual identity.  
     </Accordion>
+
     <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      Derive concrete best practices from your learnings.
-
-      - What would you do differently next time?
-      - What should become a standard approach?
-      - Document the technical procedure clearly so it can be added to the technical documentation.
+      - Start with basic, direct navigation calls in simple components, then extract reusable variants once the behavior is stable.  
+      - Store reusable components in a dedicated folder and clearly document their props, including any navigation-related props.  
+      - Base UI on core React Native components, then wrap them into custom components that share styles and behavior.  
     </Accordion>
+
     <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      If yes:
-
-      - Describe the problem clearly.
-      - Explain why it could not be solved.
-
-      If no:
-
-      - Briefly state that no unresolved issues remain.
+      - No major unresolved problems navigation via placeholder buttons is working and can be extended.  
     </Accordion>
+
     <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      List approaches that did not lead to the desired result.
-
-      - Attempt 1:
-      - Attempt 2:
-      - Why did they fail?
+      - Attempt: Mixing navigation and presentation logic too tightly, which reduced component reusability.  
     </Accordion>
+
     <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Suggest possible next steps.
-
-      - Research areas
-      - Refactoring ideas
-      - Alternative technologies
-      - Team discussion topics
+      - Improve reusable component APIs (props, variants, theming) and documentation.  
+      - Add more complex navigation flows such as stacks and tabs controlled via `_layout.tsx`.  
     </Accordion>
+
     <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Summarize:
-
-      - The key challenge
-      - Your attempted solutions
-      - Open questions
-
-      This section should help you quickly explain the situation in the next Daily Meeting.
-    </Accordion>
-  </AccordionGroup>
-
-  <Update label="11.03.2026" description="Day 4">
-  <AccordionGroup>
-    <Accordion icon="circle-check" title="What was accomplished today?">
-      Describe what you achieved today.
-
-      - List completed tasks
-      - Mention implemented features
-      - Include major milestones
-
-      📸 Attach a daily screenshot of the Project Board here.
-    </Accordion>
-    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Describe the challenges you faced and successfully solved.
-
-      Explain:
-
-      - What was the core problem?
-      - Why did it occur?
-      - How did you identify the issue?
-    </Accordion>
-    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Describe the key actions that led to the solution.
-
-      Examples:
-
-      - Debugging process
-      - Research steps
-      - Refactoring code
-      - Team communication
-    </Accordion>
-    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      Reflect on what you learned.
-
-      Consider:
-
-      - Technical insights
-      - Workflow improvements
-      - Tool-related knowledge
-      - Team collaboration insights
-    </Accordion>
-    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      Derive concrete best practices from your learnings.
-
-      - What would you do differently next time?
-      - What should become a standard approach?
-      - Document the technical procedure clearly so it can be added to the technical documentation.
-    </Accordion>
-    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      If yes:
-
-      - Describe the problem clearly.
-      - Explain why it could not be solved.
-
-      If no:
-
-      - Briefly state that no unresolved issues remain.
-    </Accordion>
-    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      List approaches that did not lead to the desired result.
-
-      - Attempt 1:
-      - Attempt 2:
-      - Why did they fail?
-    </Accordion>
-    <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Suggest possible next steps.
-
-      - Research areas
-      - Refactoring ideas
-      - Alternative technologies
-      - Team discussion topics
-    </Accordion>
-    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Summarize:
-
-      - The key challenge
-      - Your attempted solutions
-      - Open questions
-
-      This section should help you quickly explain the situation in the next Daily Meeting.
-    </Accordion>
-  </AccordionGroup>
-
-  <Update label="12.03.2026" description="Day 5">
-  <AccordionGroup>
-    <Accordion icon="circle-check" title="What was accomplished today?">
-      Describe what you achieved today.
-
-      - List completed tasks
-      - Mention implemented features
-      - Include major milestones
-
-      📸 Attach a daily screenshot of the Project Board here.
-    </Accordion>
-    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Describe the challenges you faced and successfully solved.
-
-      Explain:
-
-      - What was the core problem?
-      - Why did it occur?
-      - How did you identify the issue?
-    </Accordion>
-    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Describe the key actions that led to the solution.
-
-      Examples:
-
-      - Debugging process
-      - Research steps
-      - Refactoring code
-      - Team communication
-    </Accordion>
-    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      Reflect on what you learned.
-
-      Consider:
-
-      - Technical insights
-      - Workflow improvements
-      - Tool-related knowledge
-      - Team collaboration insights
-    </Accordion>
-    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      Derive concrete best practices from your learnings.
-
-      - What would you do differently next time?
-      - What should become a standard approach?
-      - Document the technical procedure clearly so it can be added to the technical documentation.
-    </Accordion>
-    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      If yes:
-
-      - Describe the problem clearly.
-      - Explain why it could not be solved.
-
-      If no:
-
-      - Briefly state that no unresolved issues remain.
-    </Accordion>
-    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      List approaches that did not lead to the desired result.
-
-      - Attempt 1:
-      - Attempt 2:
-      - Why did they fail?
-    </Accordion>
-    <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Suggest possible next steps.
-
-      - Research areas
-      - Refactoring ideas
-      - Alternative technologies
-      - Team discussion topics
-    </Accordion>
-    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Summarize:
-
-      - The key challenge
-      - Your attempted solutions
-      - Open questions
-
-      This section should help you quickly explain the situation in the next Daily Meeting.
-    </Accordion>
-  </AccordionGroup>
-  <Update label="26.02.2026" description="Day 1">
-  <AccordionGroup>
-    <Accordion icon="circle-check" title="What was accomplished today?">
-      Describe what you achieved today.
-
-      - List completed tasks
-      - Mention implemented features
-      - Include major milestones
-
-      📸 Attach a daily screenshot of the Project Board here.
-    </Accordion>
-    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
-      Describe the challenges you faced and successfully solved.
-
-      Explain:
-
-      - What was the core problem?
-      - Why did it occur?
-      - How did you identify the issue?
-    </Accordion>
-    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
-      Describe the key actions that led to the solution.
-
-      Examples:
-
-      - Debugging process
-      - Research steps
-      - Refactoring code
-      - Team communication
-    </Accordion>
-    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
-      Reflect on what you learned.
-
-      Consider:
-
-      - Technical insights
-      - Workflow improvements
-      - Tool-related knowledge
-      - Team collaboration insights
-    </Accordion>
-    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
-      Derive concrete best practices from your learnings.
-
-      - What would you do differently next time?
-      - What should become a standard approach?
-      - Document the technical procedure clearly so it can be added to the technical documentation.
-    </Accordion>
-    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
-      If yes:
-
-      - Describe the problem clearly.
-      - Explain why it could not be solved.
-
-      If no:
-
-      - Briefly state that no unresolved issues remain.
-    </Accordion>
-    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
-      List approaches that did not lead to the desired result.
-
-      - Attempt 1:
-      - Attempt 2:
-      - Why did they fail?
-    </Accordion>
-    <Accordion icon="search" title="Where could further work begin to solve the issue?">
-      Suggest possible next steps.
-
-      - Research areas
-      - Refactoring ideas
-      - Alternative technologies
-      - Team discussion topics
-    </Accordion>
-    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
-      Summarize:
-
-      - The key challenge
-      - Your attempted solutions
-      - Open questions
-
-      This section should help you quickly explain the situation in the next Daily Meeting.
+      - Key challenge: Connecting reusable components cleanly with Expo Router navigation.  
+      - Attempted solutions: Built placeholder routing buttons, consulted React Native core component docs and then refactored into reusable components.  
     </Accordion>
   </AccordionGroup>
 </Update>
