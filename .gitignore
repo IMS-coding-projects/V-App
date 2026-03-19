@@ -141,3 +141,5 @@ vite.config.ts.timestamp-*
 .expo/
 .vscode/
 expo-env.d.ts
+
+.idea/

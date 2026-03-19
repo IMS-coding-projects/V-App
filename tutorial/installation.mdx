@@ -6,7 +6,7 @@ keywords: ["installation", "setup", "expo go", "template"]
 mode: "wide"
 ---
 
-The goal of this page is that you can **run/see the V-App template on a real device with Expo Go** and see the initial Home / Settings tabs.
+The goal of this page is that you can **run/see the V-App template on a mobile device with Expo Go** and see the initial Home / Settings tabs.
 
 <Steps>
   <Step title="Get the code">
@@ -56,6 +56,10 @@ The goal of this page is that you can **run/see the V-App template on a real dev
   <Step title="Open the app in Expo Go">
     Install **Expo Go** from the iOS App Store or Google Play if you do not have it yet.
 
+    <Frame caption="Install Expo Go on Your Device" hint="Scan the QR Code below to download Expo Go">
+      <img src="/images/expo_go.svg" alt="Install Expo Go on Your Device" />
+    </Frame>
+
     - On iOS, open the Camera app and scan the QR code. Confirm the prompt to open in Expo Go.
     - On Android, open the Expo Go app and use the built-in QR scanner.
 
@@ -75,6 +79,6 @@ npm run format
 This uses Prettier to keep the code style consistent.
 </Note>
 
-## Task 1
+## Task 1: Play Around
 
 Once your app runs, make a small change in `app/(tabs)/home.tsx` (for example, change the text), save the file, and check on your device if it updated. Play with it a little to notice how the App works/behaves. Recall from the last React Native group that `<View>` is basically a `<div>` and `<Text>` basically a `<p>`. You might notice now that you are importing things now from `@/components/ui/text` and also have Tailwind styling(!?). __Keep any questions and we will get back to those after the navigation!__
