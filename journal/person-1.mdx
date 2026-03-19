@@ -166,3 +166,165 @@ keywords: ["journal entry", "developer log", "contribution", "reflection"]
     </Accordion>
   </AccordionGroup>
 </Update>
+
+
+<Update label="05.03.2026" description="Day 3">
+  <AccordionGroup>
+    <Accordion icon="circle-check" title="What was accomplished today?">
+      - Implemented and tested navigation between screens using buttons wired to Expo Router.  
+      - Read up on React Native core and reusable components to better understand the building blocks for our UI.  
+      - Added the logo from the previous project for future use in the current apps design.  
+
+    </Accordion>
+
+    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
+      - Core problem: Connecting reusable UI components (like buttons) correctly with navigation so that route changes trigger as expected.  
+      - It occurred because reusable components add an abstraction layer and navigation logic must be passed down or handled via hooks in a clean way.  
+      - I solved it by first testing simple navigation with basic buttons, then refactoring the working pattern into more reusable components.  
+    </Accordion>
+
+    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
+      - Reviewing React Natives core components documentation to understand the standard primitives like `Card`, `Alert` and `Button`.  
+      - Creating placeholder routing buttons that navigate to different routes and verifying their behavior.  
+      - Gradually wrapping navigation logic in reusable components instead of abstracting everything from the start.  
+    </Accordion>
+
+    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
+      - Implementing navigation with very simple placeholder buttons first makes debugging easier before adding styling and logics.  
+      - Reusing existing assets such as logos early encourages consistent visual identity.  
+    </Accordion>
+
+    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
+      - Start with basic, direct navigation calls in simple components, then extract reusable variants once the behavior is stable.  
+      - Store reusable components in a dedicated folder and clearly document their props, including any navigation-related props.  
+      - Base UI on core React Native components, then wrap them into custom components that share styles and behavior.  
+    </Accordion>
+
+    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
+      - No major unresolved problems navigation via placeholder buttons is working and can be extended.  
+    </Accordion>
+
+    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
+      - Attempt: Mixing navigation and presentation logic too tightly, which reduced component reusability.  
+    </Accordion>
+
+    <Accordion icon="search" title="Where could further work begin to solve the issue?">
+      - Improve reusable component APIs (props, variants, theming) and documentation.  
+      - Add more complex navigation flows such as stacks and tabs controlled via `_layout.tsx`.  
+    </Accordion>
+
+    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
+      - Key challenge: Connecting reusable components cleanly with Expo Router navigation.  
+      - Attempted solutions: Built placeholder routing buttons, consulted React Native core component docs and then refactored into reusable components.  
+    </Accordion>
+  </AccordionGroup>
+</Update>
+
+<Update label="11.03.2026" description="Day 4">
+  <AccordionGroup>
+    <Accordion icon="circle-check" title="What was accomplished today?">
+      - Started writing the detailed documentation for the upcoming lesson and completed steps 1-8 of the 16-step lesson preparation.  
+      - Read through the lesson preparation guidelines to ensure alignment with expectations.  
+      - Clarified several question marks directly with the teacher to make sure the content matches the required structure.  
+
+    </Accordion>
+
+    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
+      - Core problem: Interpreting some questions in the lesson preparation template and understanding the expected level of detail.  
+      - It occurred because certain instructions were open-ended, leaving room for different interpretations.  
+      - I overcame this by asking the teacher for concrete examples and confirmation before finalizing my answers.  
+    </Accordion>
+
+    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
+      - Reading the full lesson preparation document once from start to finish before filling it out.  
+      - Drafting answers for steps 1-8 and then validating unclear parts with the teacher.  
+      - Refining the wording based on feedback so that the document reflects the actual teaching goals.  
+    </Accordion>
+
+    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
+      - Clarifying expectations early with the teacher saves time and reduces the risk of rewriting sections later.  
+      - Using the lesson document as a shared artifact helps communicate goals within the team.  
+      - I work more effectively on documentation when I can ask questions instead of guessing the intended meaning.  
+    </Accordion>
+
+    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
+      - Best practice: For lesson plans, skim the whole template first, then fill it in sequentially and clarify ambiguous parts right away.  
+      - Standard approach: Use consistent terminology between the lesson plan and the example code to avoid confusion.  
+      - Documentation note: Keep lesson steps numbered and concise so they can later be reused as student-facing instructions.  
+    </Accordion>
+
+    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
+      - No unresolved issues steps 1-8 are completed and aligned with the teachers expectations.  
+    </Accordion>
+
+    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
+      - Attempt: Trying to guess certain answers without asking the teacher, which led to uncertainty and possible misalignment.  
+    </Accordion>
+
+    <Accordion icon="search" title="Where could further work begin to solve the issue?">
+      - Continue with steps 9-16 while maintaining a feedback loop with the teacher.  
+      - Start drafting example code or visual material that will be used during the lesson.  
+    </Accordion>
+
+    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
+      - Key challenge: Understanding and correctly filling in lesson preparation steps 1-8.  
+      - Attempted solutions: Thoroughly read the template for lesson preparation, drafted answers and clarified uncertainties with the teacher.  
+      - Open questions: How detailed the practical React Native examples in the later lesson steps should be.  
+    </Accordion>
+  </AccordionGroup>
+</Update>
+
+<Update label="12.03.2026" description="Day 5">
+  <AccordionGroup>
+    <Accordion icon="circle-check" title="What was accomplished today?">
+      - Completed steps 9-16 of the lesson preparation, finalizing the planned documentation.  
+      - Refined ideas for the React Native tutorial that will be the core of the upcoming lesson.  
+      - Learned how to create a reasonably structured markdown table and used this in the documentation.  
+
+    </Accordion>
+
+    <Accordion icon="mountain" title="Were there any challenges you successfully overcame?">
+      - Core problem: Staying focused and consistent while finishing the remaining lesson preparation steps.  
+      - It occurred because the documentation workload was high and required careful wording.  
+      - I managed it by asking the teacher whenever something was unclear and by breaking the work into smaller, manageable chunks.  
+    </Accordion>
+
+    <Accordion icon="route" title="Which steps were essential in solving the challenge?">
+      - Working through each remaining step one by one instead of multitasking across the document.  
+      - Clarifying remaining questions with the teacher to avoid misinterpretations.  
+      - Experimenting with markdown table syntax until the table looked clean and readable.  
+    </Accordion>
+
+    <Accordion icon="book-open" title="What learnings did you gain from this approach?">
+      - Breaking down a long documentation task into smaller steps made it easier to maintain quality and focus.  
+      - Practical experimentation is the fastest way to learn markdown features like tables.  
+      - Thinking about the React Native tutorial early helps ensure that code examples align with the written lesson goals.  
+    </Accordion>
+
+    <Accordion icon="lightbulb" title="Derived Best Practices & Technical Documentation Notes">
+      - For future lesson documents, define the main example or topic (e.g, a React Native feature) early and align all steps with that example.  
+      - Use markdown tables for structuring recurring information such as topic, goal, activity and duration.  
+      - Keep markdown tables simple, with a small number of columns and consistent formatting, so they stay readable in different tools.  
+    </Accordion>
+
+    <Accordion icon="circle-alert" title="Did you encounter any unresolved problems?">
+      - No unresolved problems, all 16 lesson preparation steps are completed and clarified where needed.  
+    </Accordion>
+
+    <Accordion icon="circle-x" title="Which solution attempts did NOT work?">
+      - Attempt: Writing markdown tables from memory without checking syntax, which led to formatting errors.   
+    </Accordion>
+
+    <Accordion icon="search" title="Where could further work begin to solve the issue?">
+      - Flesh out the concrete React Native tutorial steps, including the sequence of code examples and potential live-coding.  
+      - Prepare slides or handouts that reuse the markdown tables and core points from the lesson documentation.  
+    </Accordion>
+
+    <Accordion icon="clipboard-list" title="Preparation for the next Daily Meeting">
+      - Key challenge: Finishing the remaining lesson preparation steps and shaping the React Native tutorial concept.  
+      - Attempted solutions: Worked sequentially through steps 9-16, asked the teacher for clarification when needed and experimented with markdown tables.  
+      - Open questions: Final decision on how advanced the React Native example should be for the target audience.  
+    </Accordion>
+  </AccordionGroup>
+</Update>
+
