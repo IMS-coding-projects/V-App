@@ -104,10 +104,6 @@
       "href": "https://github.com/IMS-coding-projects/V-App"
     }
   },
-  "banner": {
-    "content": "⚙️This Project is in Progress. Check back later for more accurate information!",
-    "dismissible": true
-  },
   "thumbnails": {
     "appearance": "light",
     "background": "#7f22fe"
