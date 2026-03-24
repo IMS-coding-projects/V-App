@@ -65,7 +65,8 @@
           {
             "group": "Lesson Preparation",
             "pages": [
-              "lesson-prep"
+              "lesson-prep/index",
+              "lesson-prep/reflection"
             ]
           }
         ]
